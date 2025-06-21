@@ -1,3 +1,6 @@
-# Планировщик заданий
+# Терминальный сервер
 
-Актуальный текст задания - [по этой ссылке](https://git.culab.ru/bsc-development-basics-2nd-semester/dev-basics-2025-longreads/-/blob/main/golang/05-packages-goroutines/project.md).
+Сервер и клиент на Go. Сервер принимает поключения по telnet и выполняет команды терминала.
+
+- GO
+- Telnet
