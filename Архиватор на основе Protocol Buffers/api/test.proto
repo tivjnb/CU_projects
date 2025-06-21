@@ -1,0 +1,19 @@
+syntax = "proto3";
+package person;
+
+option go_package = "test/proto";
+option java_package = "main.proto";
+option java_multiple_files = true;
+
+enum Status {
+  NOT_SPECIFIED = 0;
+  ACTIVE = 1;
+  INACTIVE = 2;
+}
+
+message Person {
+  uint32 id = 1;
+  string name = 2;
+  repeated string email = 3;
+  Status status = 4;
+}
