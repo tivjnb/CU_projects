@@ -1,0 +1,33 @@
+stages:
+  - test
+
+variables:
+  GRADLE_USER_HOME: "$CI_PROJECT_DIR/.gradle"
+
+cache:
+  key: "$CI_COMMIT_REF_NAME"
+  paths:
+    - .gradle/
+    - build/
+
+run_tests:
+  stage: test
+  only:
+    - merge_requests
+  image: gradle:8.12.1-jdk17
+
+  tags:
+    - students-buildkit-medium
+
+  before_script:
+    - gradle --version
+    - cd week8/
+    - chmod +x ./gradlew
+
+  script:
+    - ./gradlew test --info
+  artifacts:
+    paths:
+      - build/reports/tests/
+    reports:
+      junit: build/test-results/test/TEST-*.xml
